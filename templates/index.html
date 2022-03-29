@@ -61,11 +61,25 @@
             <input class="form-check-input form-check-input-placeholder bg-light flex-shrink-0" disabled="" type="checkbox" value="" style="font-size: 1.375em;">
             <span class="pt-1 form-checked-content">
               <span contenteditable="true" class="w-100">Añadir tarea...</span>
+              <form method="post">
+                <div class="row">
+                  <div class="col-md-10">
+                    <input type="text" id="name" name="name" class="form-control" placeholder="Escribe la tarea...">
+                  </div> 
+                  <div class="col-md-2">
+                    <button type="submit" class="btn btn-secondary">
+                      Guardar
+                    </button>
+                  </div> 
+                </div>
+              </form>
+          
               <small class="d-block text-muted">
                 <svg class="bi me-1" width="1em" height="1em"><use xlink:href="#list-check"></use></svg>
               </small>
             </span>
           </label>
+        
         </div>
         </body>
 </html> 
