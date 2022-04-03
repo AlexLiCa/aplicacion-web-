@@ -26,8 +26,17 @@ def home():
         except:
             pass
     
-    
     return render_template('index.html', tasks=response)
+
+@app.route('/update/<int:id>', methods=['GET'])
+def update_task(id):
+    print(f"Vas a actualizar :{id}")
+    return redirect('/')
+    try:
+        pass
+    except:
+        pass
+
 
 
 
