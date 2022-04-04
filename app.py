@@ -28,20 +28,30 @@ def home():
     return render_template('index.html', tasks=response)
 
 
-@app.route('/update/<int:id>', methods=['GET', 'PUT'])
+@app.route('/update/<int:id>', methods=['GET'])
 def update_task(id):
     print(f"\nVas a actualizar {id}\n")
+    prueba=requests.get(url+"/"+str(id))
+    print(prueba)
     # return redirect('/')
-    if request.method == 'GET':
-        try:
-            print(f"{id}")
-            requests.put(url, json ={"check:":True})
-            return redirect('/')
-        except:
-            return redirect('/')
-    else:
+    try:
+        requests.put(url+"/"+str(id), json={"check": 1})
+        print(url+"/"+str(id))
+        return redirect('/')
+    except:
         return redirect('/')
 
+
+@app.route('/delete/<int:id>', methods=['GET'])
+def delete_task(id):
+    print(f"\nVas a borrar {id}\n")
+    try:
+        requests.delete(url+"/"+str(id))
+        print(url+"/"+str(id))
+        return redirect('/')
+    except:
+    
+        return redirect('/')
 
 
 if __name__ == '__main__':
